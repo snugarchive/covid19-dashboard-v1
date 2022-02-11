@@ -5,8 +5,14 @@ import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
+import ReactGa from 'react-ga';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(()=> {
+    ReactGa.initialize("G-JD059L6HPW");
+    ReactGa.pageview('/');
+  }, [])
   return (
     <Router>
       <div className="App">
