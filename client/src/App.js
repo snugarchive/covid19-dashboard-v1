@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar title="COVID19 코로나 확진자 현황 모니터링" />
+        <Navbar title="COVID19 코로나 현황 모니터링" />
         <div className="content">
           <Routes>
             <Route exact path="/" element={<Home />} />
