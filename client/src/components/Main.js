@@ -46,7 +46,6 @@ const Main = ({ dataAll }) => {
 
   const loadFunctionsTask = new LoadFunctionsTask();
   const loadConfigTask = new LoadConfigTask();
-  console.log(dataTotal[0])
   // Options
 
   const option_national_monthly = loadConfigTask.setDefaultOption(
@@ -154,12 +153,10 @@ const Main = ({ dataAll }) => {
       )
     ),
   ];
-  console.log(datasets_setNationalVaccinatedData);
 
   // # 1.3 setNationalTestedData
 
   const labels_setNationalTestedData = ["총 검사 수"];
-  console.log(dataTotal[0]);
   const datasets_setNationalTestedData = [
     loadConfigTask.createDataset(
       "양성",
