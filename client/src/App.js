@@ -5,12 +5,18 @@ import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
+import ReactGa from 'react-ga';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(()=> {
+    ReactGa.initialize("G-RQQXKFSG5B");
+    ReactGa.pageview('/');
+  }, [])
   return (
     <Router>
       <div className="App">
-        <Navbar title="COVID19 코로나 확진자 현황 모니터링" />
+        <Navbar title="COVID19 코로나 현황 모니터링" />
         <div className="content">
           <Routes>
             <Route exact path="/" element={<Home />} />
