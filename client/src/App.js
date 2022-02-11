@@ -5,13 +5,13 @@ import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-import ReactGa from 'react-ga';
+import ReactGA from "react-ga";
 import { useEffect } from 'react';
 
 function App() {
   useEffect(()=> {
-    ReactGa.initialize("G-RQQXKFSG5B");
-    ReactGa.pageview('/');
+    ReactGA.initialize("UA-219539801-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, [])
   return (
     <Router>
