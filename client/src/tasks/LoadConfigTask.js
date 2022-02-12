@@ -103,7 +103,6 @@ class LoadConfigTask {
         };
         return { annotation1 };
     };
-
 }
 
 export default LoadConfigTask;

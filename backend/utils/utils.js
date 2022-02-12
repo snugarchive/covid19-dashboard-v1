@@ -46,7 +46,7 @@ module.exports = {
             const incDec = cur.incDec;
             const qurRate = cur.qurRate;
 
-            if (index < 19 * 31) {
+            if (index < 19 * 7) {
                 acc.push({ currentDate, year, month, date, gubun, incDec, qurRate })
             };
             return acc;

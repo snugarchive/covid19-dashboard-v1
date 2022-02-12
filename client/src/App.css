@@ -10,7 +10,7 @@
     background: rgb(206, 238, 238);
     order: 2;
   }
-    .sub-main_national {
+    .national {
       background: rgb(213, 236, 213);
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -18,7 +18,7 @@
       margin: 0 auto;
     }
 
-    .sub-main_global {
+    .global {
       background: rgb(32, 99, 76);
       display: grid;
       grid-template-columns: repeat(1, 2fr);
@@ -74,7 +74,7 @@
     #national_monthly {
       background: whitesmoke;
       height: 250px;
-      grid-column: span 2;
+      grid-column: span 1;
     }
 
     #national_vaccinated {
