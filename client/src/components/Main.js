@@ -17,7 +17,7 @@ import annotationPlugin from 'chartjs-plugin-annotation'
 import zoomPlugin from 'chartjs-plugin-zoom'
 import LoadFunctionsTask from '../tasks/LoadFunctionsTask'
 import LoadConfigTask from '../tasks/LoadConfigTask'
-import GraphList from './GraphList'
+import AllCharts from './AllCharts'
 
 ChartJS.register(
   LinearScale,
@@ -46,60 +46,6 @@ const Main = ({ eventData }) => {
 
   const loadFunctionsTask = new LoadFunctionsTask()
   const loadConfigTask = new LoadConfigTask()
-  
-  // Options
-
-  const option_national_monthly = loadConfigTask.setDefaultOption(
-    '확진자 일별 추이',
-    'x',
-    false,
-    undefined,
-    undefined,
-    loadConfigTask.annotations_verticalLine(30, 'x', '오늘')
-  )
-  const option_national_vaccinated = loadConfigTask.setDefaultOption(
-    '접종 현황',
-    'y',
-    false,
-    loadConfigTask.formatter_vaccinated,
-    undefined
-  )
-  const option_national_tested = loadConfigTask.setDefaultOption(
-    '검사 현황',
-    'y',
-    true,
-    loadConfigTask.formatter_stacked_percentage,
-    loadConfigTask.tooltip_sum
-  )
-  const option_national_treated = loadConfigTask.setDefaultOption(
-    '확진자 상태별 현황',
-    'y',
-    true,
-    loadConfigTask.formatter_stacked_percentage,
-    loadConfigTask.tooltip_sum
-  )
-  const option_national_yearly = loadConfigTask.setDefaultOption(
-    '확진자 월별 추이',
-    'x',
-    false
-  )
-  const option_national_age = loadConfigTask.setDefaultOption(
-    '확진자 연령별 현황',
-    'y',
-    true,
-    loadConfigTask.formatter_bar_percentage
-  )
-  const option_national_sex = loadConfigTask.setDefaultOption(
-    '확진자 성별 현황',
-    'y',
-    true,
-    loadConfigTask.formatter_bar_percentage
-  )
-  const option_national_local = loadConfigTask.setDefaultOption(
-    '확진자 지역별 추이',
-    'x',
-    false
-  )
 
   const option_global_country = () => {
     let options = loadConfigTask.setDefaultOption(
@@ -355,10 +301,6 @@ const Main = ({ eventData }) => {
     },
   ]
 
-  const dataSetup = setup.map((i) => {
-    return { labels: i.labels, datasets: i.datasets }
-  })
-
   // setSections
 
   const [sections, setSections] = useState([
@@ -366,64 +308,99 @@ const Main = ({ eventData }) => {
       className: 'national',
       id: 'national_monthly',
       type: 'bar',
-      options: option_national_monthly,
-      data: dataSetup[0],
+      options: loadConfigTask.setDefaultOption(
+        '확진자 일별 추이',
+        'x',
+        false,
+        undefined,
+        undefined,
+        loadConfigTask.annotations_verticalLine(30, 'x', '오늘')
+      ),
+      data: setup[0],
       plugins: undefined,
     },
     {
       className: 'national',
       id: 'national_vaccinated',
       type: 'bar',
-      options: option_national_vaccinated,
-      data: dataSetup[1],
+      options: loadConfigTask.setDefaultOption(
+        '접종 현황',
+        'y',
+        false,
+        loadConfigTask.formatter_vaccinated,
+        undefined
+      ),
+      data: setup[1],
       plugins: [ChartDataLabels],
     },
     // {
     //   className: "national",
     //   id: "national_tested",
     //   type: "bar",
-    //   options: option_national_tested,
-    //   data: dataSetup[2],
+    //   options: loadConfigTask.setDefaultOption(
+    //   '검사 현황',
+    //   'y',
+    //   true,
+    //   loadConfigTask.formatter_stacked_percentage,
+    //   loadConfigTask.tooltip_sum
+    // ),
+    //   data: setup[2],
     //   plugins: [ChartDataLabels],
     // },
     {
       className: 'national',
       id: 'national_treated',
       type: 'bar',
-      options: option_national_treated,
-      data: dataSetup[3],
+      options: loadConfigTask.setDefaultOption(
+        '확진자 상태별 현황',
+        'y',
+        true,
+        loadConfigTask.formatter_stacked_percentage,
+        loadConfigTask.tooltip_sum
+      ),
+      data: setup[3],
       plugins: [ChartDataLabels],
     },
     {
       className: 'national',
       id: 'national_yearly',
       type: 'line',
-      options: option_national_yearly,
-      data: dataSetup[4],
+      options: loadConfigTask.setDefaultOption('확진자 월별 추이', 'x', false),
+      data: setup[4],
       plugins: undefined,
     },
     {
       className: 'national',
       id: 'national_age',
       type: 'bar',
-      options: option_national_age,
-      data: dataSetup[5],
+      options: loadConfigTask.setDefaultOption(
+        '확진자 연령별 현황',
+        'y',
+        true,
+        loadConfigTask.formatter_bar_percentage
+      ),
+      data: setup[5],
       plugins: [ChartDataLabels],
     },
     {
       className: 'national',
       id: 'national_sex',
       type: 'bar',
-      options: option_national_sex,
-      data: dataSetup[6],
+      options: loadConfigTask.setDefaultOption(
+        '확진자 성별 현황',
+        'y',
+        true,
+        loadConfigTask.formatter_bar_percentage
+      ),
+      data: setup[6],
       plugins: [ChartDataLabels],
     },
     {
       className: 'national',
       id: 'national_local',
       type: 'bar',
-      options: option_national_local,
-      data: dataSetup[7],
+      options: loadConfigTask.setDefaultOption('확진자 지역별 추이', 'x', false),
+      data: setup[7],
       plugins: undefined,
     },
     {
@@ -431,34 +408,12 @@ const Main = ({ eventData }) => {
       id: 'global_country',
       type: 'bar',
       options: option_global_country(),
-      data: dataSetup[8],
+      data: setup[8],
       plugins: [ChartDataLabels],
     },
   ])
 
-  return (
-    <div className='main'>
-      <div className='national'>
-        {sections && (
-          <GraphList
-            sections={sections.filter(
-              (section) => section.className === 'national'
-            )}
-            title='대시보드'
-          />
-        )}
-      </div>
-      <div className='global'>
-        {sections && (
-          <GraphList
-            sections={sections.filter(
-              (section) => section.className === 'global'
-            )}
-          />
-        )}
-      </div>
-    </div>
-  )
+  return <AllCharts sections={sections} />
 }
 
 export default Main
