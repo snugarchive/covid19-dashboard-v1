@@ -34,7 +34,7 @@ ChartJS.register(
   annotationPlugin
 );
 
-const Main = ({ dataAll }) => {
+const Main = ({ eventData }) => {
   const [
     dataTotal,
     dataLocal,
@@ -42,7 +42,7 @@ const Main = ({ dataAll }) => {
     dataVaccinated,
     dataGlobal,
     dataCountries,
-  ] = [...Array(6).keys()].map((i) => dataAll[i]);
+  ] = [...Array(6).keys()].map((i) => eventData[i]);
 
   const loadFunctionsTask = new LoadFunctionsTask();
   const loadConfigTask = new LoadConfigTask();

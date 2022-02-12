@@ -1,18 +1,16 @@
 import React from 'react'
-import Spinner from '../components/Spinner'
-import Main from '../components/Main';
-import useFetch from '../hooks/useFetch';
+import Loader from '../components/Loader'
+import Main from '../components/Main'
+import useFetch from '../hooks/useFetch'
 
 const Home = () => {
-    const { data: dataAll, isPending, error } = useFetch("/data");
+  const { eventData, loading } = useFetch('/data')
 
-    return (
-      <div className="home">
-        {error && <div> {error} </div>}
-        {isPending && <Spinner />}
-        {dataAll && <Main dataAll={dataAll} />}
-      </div>
-    );
+  return (
+    <div className='home'>
+      { !loading && eventData ? <Main eventData={eventData} /> : <Loader /> }
+    </div>
+  )
 }
 
 export default Home
