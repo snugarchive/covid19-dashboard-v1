@@ -1,5 +1,4 @@
 class LoadConfigTask {
-
     createDataset = (
         label, data, type = undefined, fill = true, backgroundColor = "lightgray", borderColor = "lightgray", tension = 0.1, yAxisID = 'y', stack = undefined) => {
         return { 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Chart } from "react-chartjs-2";
 
-const GraphList = ({ sections, title }) => {
+const GraphList = ({ sections }) => {
     return (
       <>
         {sections.map((section) => (
