@@ -9,8 +9,8 @@
     "yarn": "1.22.15"
   },
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
     "client": "cd client && yarn start",
     "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
@@ -27,5 +27,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "proxy": "http://localhost:5000/api"
 }
