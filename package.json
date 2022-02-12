@@ -11,8 +11,8 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "cd client && yarn start",
-    "heroku-postbuild": "cd client && yarn install && yarn run build"
+    "client": "cd client && npm start",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -21,12 +21,12 @@
     "axios": "^0.22.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "react-ga": "^3.3.0",
-    "react-router-dom": "^6.2.1",
+    "express-async-handler": "^1.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
-  "proxy": "http://localhost:5000/api"
+  }
 }

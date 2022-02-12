@@ -9,7 +9,6 @@ const getDataFromGlobalAPI = (callback) => {
 
     coronastatusGlobal.push(usedFunctionList[0]([res.data.Global]))
     coronastatusGlobal.push(usedFunctionList[1](res.data.Countries))
-    // console.log(coronastatusGlobal)
 
     return callback(undefined, { coronastatusGlobal })
   }

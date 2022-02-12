@@ -9,7 +9,7 @@ app.set('json spaces', 2)
 
 app.use(express.json()) // body parser for raw json(.json)
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, '/client/build')))
+app.use(express.static(path.join(__dirname, '../client/build')))
 
 app.use('/api/data', require('./routes/dataRoutes'))
 

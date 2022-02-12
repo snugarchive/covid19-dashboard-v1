@@ -10,10 +10,9 @@ const useFetch = (url) => {
     useEffect(() => {
       const abortCont = new AbortController();
 
-      axios
+      axiosInstance
         .get(url, { signal: abortCont.signal })
         .then((res) => {
-          console.log(res)
           if (res.statusText !== 'OK') {
             throw Error('데이터를 가져올 수 없습니다.')
           }

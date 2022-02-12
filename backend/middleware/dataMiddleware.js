@@ -1,9 +1,9 @@
 module.exports = {
-  sendDataKoreaOverview: async function (req, res, next) {
+  sendDataKoreaOverview: function (req, res, next) {
     const getDataFromPDP = require('../libs/getDataFromPDP')
     const { getDateToday } = require('../utils/utils')
 
-    await getDataFromPDP(
+    getDataFromPDP(
       '20200301',
       getDateToday(),
       (error, { coronastatus } = {}) => {
@@ -15,9 +15,9 @@ module.exports = {
       }
     )
   },
-  sendDataKoreaVaccinated: async function (req, res, next) {
+  sendDataKoreaVaccinated: function (req, res, next) {
     const getDataFromPDP2 = require('../libs/getDataFromPDP2')
-    await getDataFromPDP2((error, { coronastatusVaccinated } = {}) => {
+    getDataFromPDP2((error, { coronastatusVaccinated } = {}) => {
       if (error) {
         console.log(error)
       }
@@ -25,9 +25,9 @@ module.exports = {
       next()
     })
   },
-  sendDataGlobalOverview: async function (req, res, next) {
+  sendDataGlobalOverview: function (req, res, next) {
     const getDataFromGlobalAPI = require('../libs/getDataFromGlobalAPI')
-    await getDataFromGlobalAPI((error, { coronastatusGlobal } = {}) => {
+    getDataFromGlobalAPI((error, { coronastatusGlobal } = {}) => {
       if (error) {
         console.log(error)
       }
