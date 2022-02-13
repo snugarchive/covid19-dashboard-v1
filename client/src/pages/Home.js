@@ -2,26 +2,22 @@ import React, { useState, useEffect } from 'react'
 import Loader from '../components/Loader'
 import Main from '../components/Main'
 import CovidMap from '../components/CovidMap'
+import Legend from '../components/Legend'
 import useFetch from '../hooks/useFetch'
-import LoadCountriesTask from '../tasks/LoadCountriesTask'
+import legendItems from "../entities/LegendItems"
 
 const Home = () => {
+
   const { eventData, loading } = useFetch('/data')
-  const [countries, setCountries] = useState([])
-
-  const load = () => {
-    const loadCountriesTask = new LoadCountriesTask()
-    loadCountriesTask.load(setCountries)
-  }
-
-  useEffect(load, [])
+  const legendItemsInReverse = [...legendItems].reverse()
 
   return (
     <div className='home'>
-      { !loading && eventData && countries ? (
+      { !loading && eventData ? (
         <>
           <Main eventData={eventData} />
-          <CovidMap countries={countries} />
+          <CovidMap eventData={eventData} />
+          <Legend legendItems={legendItemsInReverse} />
         </>
       ) : (
         <Loader />
