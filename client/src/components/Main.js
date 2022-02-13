@@ -40,8 +40,7 @@ const Main = ({ eventData }) => {
     dataLocal,
     dataAgeSex,
     dataVaccinated,
-    dataGlobal,
-    dataCountries,
+    dataCountries
   ] = eventData
 
   const loadFunctionsTask = new LoadFunctionsTask()
@@ -240,8 +239,8 @@ const Main = ({ eventData }) => {
 
   // # 1.9 setGlobalCountryData
 
-  const labels_country = dataCountries.map((i) => i.Country)
-  const data_country = dataCountries.map((i) => i.TotalConfirmed)
+  const labels_country = dataCountries.map((i) => i.country)
+  const data_country = dataCountries.map((i) => i.confirmed)
 
   let merged = labels_country.map((label, i) => {
     return { datapoint: data_country[i], labels: labels_country[i] }

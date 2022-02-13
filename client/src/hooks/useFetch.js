@@ -21,6 +21,7 @@ const useFetch = (url) => {
 
 export default useFetch
 
+
 /*
 import { useState, useEffect } from 'react'
 import axios from "axios";

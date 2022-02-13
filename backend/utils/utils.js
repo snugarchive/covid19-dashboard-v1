@@ -84,25 +84,15 @@ module.exports = {
         }, []);
         return arr;
     },
-    makeDataGlobal: (items) => {
-        const arr = items.reduce((acc, cur) => {
-            const currentDate = new Date(cur.Date);
-            const TotalConfirmed = cur.TotalConfirmed;
-            const TotalDeaths = cur.TotalDeaths;
-            const NewConfirmed = cur.NewConfirmed;
-            const NewDeaths = cur.NewDeaths;
-
-            acc.push({ currentDate, NewConfirmed, NewDeaths, TotalConfirmed, TotalDeaths })
-            return acc;
-        }, []);
-        return arr;
-    },
     makeDataCountries: (items) => {
         const arr = items.reduce((acc, cur) => {
-            const Country = cur.Country;
-            const TotalConfirmed = cur.TotalConfirmed;
+            const date = new Date(cur.Last_Update);
+            const country = cur.Country_Region;
+            const iso3 = cur.ISO3;
+            const confirmed = cur.Confirmed;
+            const deaths = cur.Deaths;
 
-            acc.push({ Country, TotalConfirmed });
+            acc.push({ date, country, iso3, confirmed, deaths });
             return acc;
         }, []);
         return arr;
