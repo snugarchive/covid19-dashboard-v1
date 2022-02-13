@@ -17,7 +17,7 @@ import annotationPlugin from 'chartjs-plugin-annotation'
 import zoomPlugin from 'chartjs-plugin-zoom'
 import LoadFunctionsTask from '../tasks/LoadFunctionsTask'
 import LoadConfigTask from '../tasks/LoadConfigTask'
-import AllCharts from './AllCharts'
+import GraphList from './GraphList'
 
 ChartJS.register(
   LinearScale,
@@ -412,7 +412,29 @@ const Main = ({ eventData }) => {
     },
   ])
 
-  return <AllCharts sections={sections} />
+  return (
+    <div className='main'>
+      <div className='national'>
+        {sections && (
+          <GraphList
+            sections={sections.filter(
+              (section) => section.className === 'national'
+            )}
+            title='대시보드'
+          />
+        )}
+      </div>
+      <div className='global'>
+        {sections && (
+          <GraphList
+            sections={sections.filter(
+              (section) => section.className === 'global'
+            )}
+          />
+        )}
+      </div>
+    </div>
+  )
 }
 
 export default Main
