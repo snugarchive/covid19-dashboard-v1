@@ -1,3 +1,4 @@
 .leaflet-container {
-  background-color: powderblue;
+  background-color: #ADD8E6;
+  display: grid;
 }

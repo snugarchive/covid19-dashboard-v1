@@ -9,13 +9,13 @@ const Footer = ({ developer, email, website, disclaimer }) => {
           <br />
           이메일: {email}
           <br />
-          웹사이트: {website}
+          웹사이트: <a href={website}>{website}</a>
           <br />
           <b>Disclaimer: {disclaimer}</b>
         </i>
       </address>
     </footer>
-  );
+  )
 };
 
 export default Footer;

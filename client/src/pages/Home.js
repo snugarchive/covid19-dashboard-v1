@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Loader from '../components/Loader'
 import Main from '../components/Main'
 import CovidMap from '../components/CovidMap'

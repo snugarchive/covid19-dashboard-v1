@@ -164,7 +164,7 @@ const Main = ({ eventData }) => {
     loadConfigTask.createDataset(
       year,
       loadFunctionsTask.getDataset_2(dataTotal, year),
-      'line',
+      'bar',
       false
     )
   )
@@ -363,7 +363,7 @@ const Main = ({ eventData }) => {
     {
       className: 'national',
       id: 'national_yearly',
-      type: 'line',
+      type: 'bar',
       options: loadConfigTask.setDefaultOption('확진자 월별 추이', 'x', false),
       data: setup[4],
       plugins: undefined,

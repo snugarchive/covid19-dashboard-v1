@@ -3,58 +3,37 @@ import LegendItem from './LegendItem'
 var legendItems = [
   new LegendItem(
     '10,000,000 +',
-    '#741f1f',
-    // "#8b0000",
+    'var(--clr-orange-5)',
     (cases) => cases >= 10_000_000,
-    'white'
+    'var(--clr-white)'
   ),
 
   new LegendItem(
     '5,000,000 - 9,999,999',
-    // "#741f1f",
-    '#9c2929',
+    'var(--clr-orange-4)',
     (cases) => cases >= 5_000_000 && cases < 10_000_000,
-    'White'
+    'var(--clr-white)'
   ),
 
   new LegendItem(
     '1,000,000 - 4,999,999',
-    '#c57f7f',
+    'var(--clr-orange-3)',
     (cases) => cases >= 1_000_000 && cases < 5_000_000
   ),
 
   new LegendItem(
     '500,000 - 999,999',
-    '#d8aaaa',
+    'var(--clr-orange-2)',
     (cases) => cases >= 500_000 && cases < 1_000_000
   ),
 
   new LegendItem(
     '0 - 499,999',
-    '#ebd4d4',
+    'var(--clr-orange-1)',
     (cases) => cases > 0 && cases < 500_000
   ),
 
-  new LegendItem('No Data', '#ffffff', (cases) => true),
+  new LegendItem('No Data', 'var(--clr-white)', (cases) => true),
 ]
 
 export default legendItems
-
-/**
- * 7 > 1 million                        #8b0000
- * 6 >= 500 thousand < 1 million        #9e2a2a
- * 5 >= 200 thousand < 500 thousand     #b15555
- * 4 >= 100 thousand  < 200 Thousand    #c57f7f
- * 3 > 50 thousand < 100 thousand       #d8aaaa
- * 2 >= 0 < 50 thousand                 #ebd4d4
- * 1 NO DATA                            #ffffff
- */
-
-/*
-#741f1f // Really red
-#9c2929 // more red
-#c57f7f // red
-#d8aaaa //more pink
-#ebd4d4 //pink
-#ffffff //white
-*/
