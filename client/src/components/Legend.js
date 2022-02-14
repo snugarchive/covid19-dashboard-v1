@@ -17,6 +17,7 @@ const Legend = ({ legendItems }) => {
             display: 'flex',
             alignItems: 'center', // vertical
             justifyContent: 'center', // horiztontal
+            textAlign: 'center',
             color: item.textColor != null ? item.textColor : 'black',
             fontWeight: 'bolder',
             fontSize: '1em',

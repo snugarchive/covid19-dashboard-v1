@@ -67,13 +67,13 @@ const CovidMap = ({ eventData }) => {
         style={{ height: '55vh' }}
         zoom={2}
         maxZoom={5}
-        center={[20, 100]}
+        center={[25.505, -0.09]}
       >
         <GeoJSON
           data={countries}
           style={style}
           onEachFeature={onEachCountry}
-          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <br><a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a> <br><a href="https://github.com/CodingWith-Adam/covid19-map">Credit to Coding With Adam</a>'
         />
       </MapContainer>
       {/* {!onselect.country && (
