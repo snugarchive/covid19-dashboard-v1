@@ -9,7 +9,7 @@ const useFetch = (url) => {
   useEffect(() => {
     const fetchEvents = async () => {
       setLoading(true)
-      const res = await axios.get(url)
+      const res = await axiosInstance.get(url)
       setEventData(res.data)
       setLoading(false)
     }
