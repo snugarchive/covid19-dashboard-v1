@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 :root {
-  --clr-orange-1: #f5ceb4;
-  --clr-orange-2: #f8a873;
-  --clr-orange-3: #f38841;
-  --clr-orange-4: #db5e0a;
-  --clr-orange-5: #a1490f;
+  --clr-orange-1: #FFEDA0;
+  --clr-orange-2: #FED976;
+  --clr-orange-3: #FEB24C;
+  --clr-orange-4: #FD8D3C;
+  --clr-orange-5: #FC4E2A;
+  --clr-orange-6: #E31A1C;
+  --clr-orange-7: #BD0026;
+  --clr-orange-8: #800026;
   --clr-grey-border: #746d69;
   --clr-white: #fff;
 }
