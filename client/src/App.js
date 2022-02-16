@@ -9,10 +9,12 @@ import ReactGA from 'react-ga'
 import { useEffect } from 'react'
 
 function App() {
+  const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID
   useEffect(() => {
-    ReactGA.initialize('UA-219539801-1')
+    ReactGA.initialize(TRACKING_ID)
     ReactGA.pageview(window.location.pathname + window.location.search)
   }, [])
+  
   return (
     <Router>
       <div className='App'>
