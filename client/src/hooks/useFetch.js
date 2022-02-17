@@ -9,7 +9,10 @@ const useFetch = (url) => {
   useEffect(() => {
     const fetchEvents = async () => {
       setLoading(true)
-      const res = await axiosInstance.get(url)
+      const res =
+        process.env.NODE_ENV === 'production'
+          ? await axiosInstance.get(url)
+          : await axios.get(url)
       setEventData(res.data)
       setLoading(false)
     }
